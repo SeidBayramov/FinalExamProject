@@ -16,7 +16,6 @@ namespace FinalExamProject.ViewModel
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
     }
@@ -28,8 +27,8 @@ namespace FinalExamProject.ViewModel
             RuleFor(x => x.Surname).NotEmpty().WithMessage("Surname is required");
             RuleFor(x => x.Username).NotEmpty().WithMessage("Username is required");
             RuleFor(x => x.Email).EmailAddress().NotEmpty().WithMessage("Email is required");
-            RuleFor(x=>x.Password).NotEmpty().WithMessage("Password is required");
-            RuleFor(x => x.ConfirmPassword).Equal(x => x.Password).NotEmpty().WithMessage("Password must match").WithMessage("ConfirmPassword is required");
+            RuleFor(x=>x.Password).NotNull().NotEmpty().WithMessage("Password is required");
+            RuleFor(x => x.ConfirmPassword).NotNull().NotEmpty().WithMessage("ConfirmPassword is required").Equal(x => x.Password).WithMessage("Password must match");
         }
     }
 }

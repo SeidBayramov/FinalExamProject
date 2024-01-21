@@ -30,13 +30,11 @@ namespace FinalExamProject.Controllers
         {
             RegisterVmValidation validationRules = new RegisterVmValidation();
             var respons= validationRules.Validate(vm);
-            if (!ModelState.IsValid)
+            if (!respons.IsValid)
             {
                 foreach (var eror in respons.Errors)
                 {
-
                     ModelState.Clear();
-
                     ModelState.AddModelError(eror.PropertyName,eror.ErrorMessage);
                 }
                 return View(vm);
@@ -78,7 +76,7 @@ namespace FinalExamProject.Controllers
         {
             LoginVmValidation validationRules = new LoginVmValidation();
             var respons = validationRules.Validate(vm);
-            if (!ModelState.IsValid)
+            if (!respons.IsValid)
             {
                 foreach (var eror in respons.Errors)
                 {
