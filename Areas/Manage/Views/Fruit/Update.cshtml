@@ -1,0 +1,27 @@
+﻿@using FinalExamProject.Areas.Manage.ViewModel.Fruit
+@model FruitUpdateVm
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label asp-for="Title">Title</label>
+            <input class="form-control" asp-for="Title" type="text">
+            <span asp-validation-for="Title" style="color:red"></span>
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label asp-for="SubTitle">SubTitle</label>
+            <input class="form-control" asp-for="SubTitle" type="text">
+            <span asp-validation-for="SubTitle" style="color:red"></span>
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <div style="width:100%;">
+                <img style="width:100px;height:100px;border-radius:50%;" src="~/Upload/@Model.ImageUrl"></img>
+            </div>
+            <label asp-for="Image">Image</label>
+            <input class="form-control" asp-for="Image" />
+            <span asp-validation-for="Image" style="color:red"></span>
+        </div>
+        <div asp-validation-summary="All">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

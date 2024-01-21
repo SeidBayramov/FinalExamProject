@@ -55,7 +55,7 @@
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
                                         <li class="active"><a href="#home">Home</a></li>
-                                        <li><a asp-action="Index" asp-controller="Dashboard" asp-area="areas">Admin Panel</a></li>
+                                        <li><a asp-action="Index" asp-controller="Dashboard" asp-area="Manage">Admin Panel</a></li>
                                         @if(User.Identity.IsAuthenticated){
                                             <li class="active"><a href="#home">@User.Identity.Name</a></li>
                                             <li><a asp-action="LogOut" asp-controller="Account">LogOut</a></li>

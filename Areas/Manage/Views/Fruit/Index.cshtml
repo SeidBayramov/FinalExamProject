@@ -1,0 +1,41 @@
+﻿@{
+    int count = 0;
+}
+@model List<Fruit>
+<div class="container">
+    <h2>Fruit Table</h2>
+    <a class="btn btn-primary" asp-action="Create" asp-controller="Fruit" >Create</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">SubTitle</th>
+                <th scope="col">Image</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.Title</td>
+                    <td>@item.SubTitle</td>
+                    <td>
+                    <div style="width:100%;">
+                        <img style="width:100px;height:100px;border-radius:50%;" src="~/Upload/@item.ImageUrl"></img>
+                    </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-secondary" asp-action="Update" asp-controller="Fruit" asp-route-id="@item.Id">Update</a>
+                        <a class="btn btn-danger  item-delete" asp-action="Delete" asp-controller="Fruit" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>

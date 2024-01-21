@@ -1,5 +1,5 @@
 ﻿
-s
+@model List<Fruit>
 <section class="slider_section">
     <div class="container">
         <div class="row">
@@ -52,30 +52,19 @@ s
             </div>
         </div>
         <div class="row">
+            @foreach (var item in Model)
+            {
             <div class="col-md-4 margin_top_30">
                 <div class="full fr">
-                    <img class="img-responsive" src="~/images/f1.png" alt="#" />
+                    <img class="img-responsive" src="~/Upload/@item.ImageUrl"  />
                 </div>
                 <div class="full text_align_center">
-                    <h3 class="white_font">Black Grapes<br><strong class="theme_blue">Fresh Fruit</strong></h3>
+                    <h3 class="white_font">@item.Title<br><strong class="theme_blue">@item.SubTitle</strong></h3>
                 </div>
             </div>
-            <div class="col-md-4 margin_top_30">
-                <div class="full fr">
-                    <img class="img-responsive" src="~/images/f2.png" alt="#" />
-                </div>
-                <div class="full text_align_center">
-                    <h3 class="white_font">Pineapple<br><strong class="theme_blue">Fresh Fruit</strong></h3>
-                </div>
-            </div>
-            <div class="col-md-4 margin_top_30">
-                <div class="full fr">
-                    <img class="img-responsive" src="~/images/f3.png" alt="#" />
-                </div>
-                <div class="full text_align_center">
-                    <h3 class="white_font">Bananas<br><strong class="theme_blue">Fresh Fruit</strong></h3>
-                </div>
-            </div>
+                
+            }
+            
         </div>
     </div>
 </div>

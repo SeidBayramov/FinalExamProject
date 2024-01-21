@@ -1,5 +1,7 @@
 using FinalExamProject.DAL.Context;
 using FinalExamProject.Models;
+using FinalExamProject.ViewModel;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,9 @@ namespace FinalExamProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddAutoMapper(typeof(IMapperProfile).Assembly);
+            builder.Services.AddValidatorsFromAssembly(typeof(LoginVmValidation).Assembly);
 
             builder.Services.AddDbContext<AppDbContext>(opt =>
             {
