@@ -1,14 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FinalExamProject.DAL.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace FinalExamProject.Controllers
 {
     public class HomeController : Controller
     {
-       
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+
+        public HomeController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var fruit = await _context.Fruits.ToListAsync();
+            return View(fruit);
         }
 
     }
